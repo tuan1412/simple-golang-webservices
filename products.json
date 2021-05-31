@@ -1,0 +1,29 @@
+[
+  {
+    "productId": 1,
+    "manufacture": "Johns",
+    "sku": "p5z3d3",
+    "upc": "939",
+    "pricePerUnit": "495.45", 
+    "quantityOnHand": 9703, 
+    "productName": "sticky note"
+  },
+  {
+    "productId": 2,
+    "manufacture": "Wash",
+    "sku": "p5z3d3",
+    "upc": "939",
+    "pricePerUnit": "495.45", 
+    "quantityOnHand": 9000, 
+    "productName": "leg warmers"
+  },
+  {
+    "productId": 3,
+    "manufacture": "Bruno",
+    "sku": "p5z3d3",
+    "upc": "939",
+    "pricePerUnit": "495.45", 
+    "quantityOnHand": 9703, 
+    "productName": "lamp shade"
+  }
+]
