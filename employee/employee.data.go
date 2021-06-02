@@ -8,9 +8,9 @@ import (
 )
 
 func getEmployeeList() ([]Employee, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 15 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
-	
+
 	results, err := database.DbConn.QueryContext(ctx, `SELECT employeeId, name FROM employees`)
 	if err != nil {
 		return nil, err
@@ -27,7 +27,7 @@ func getEmployeeList() ([]Employee, error) {
 }
 
 func getEmployee(employeeID int) (*Employee, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 15 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	row := database.DbConn.QueryRowContext(ctx, `SELECT employeeId, name FROM employees WHERE employeeId = ?`, employeeID)
@@ -43,7 +43,7 @@ func getEmployee(employeeID int) (*Employee, error) {
 }
 
 func updateEmployee(employee Employee) error {
-	ctx, cancel := context.WithTimeout(context.Background(), 15 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	_, err := database.DbConn.ExecContext(ctx, `UPDATE employees SET name = ? WHERE employeeId = ?`, employee.Name, employee.EmployeeID)
@@ -54,7 +54,7 @@ func updateEmployee(employee Employee) error {
 }
 
 func insertEmployee(employee Employee) (int, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 15 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	result, err := database.DbConn.ExecContext(ctx, `INSERT INTO employees values ?`)
@@ -69,7 +69,7 @@ func insertEmployee(employee Employee) (int, error) {
 }
 
 func removeEmployee(employeeId int) error {
-	ctx, cancel := context.WithTimeout(context.Background(), 15 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	_, err := database.DbConn.ExecContext(ctx, `DELETE FROM employees WHERE employeeId = ?`, employeeId)
