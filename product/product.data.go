@@ -109,3 +109,14 @@ func removeProduct(ProductID int) {
 	defer productMap.Unlock()
 	delete(productMap.m, ProductID)
 }
+
+func getTopTenProducts() []Product {
+	products := getProductList()
+	sort.SliceStable(products, func (i, j int) bool {
+		return products[i].QuantityOnHand > products[j].QuantityOnHand
+	})
+	if len(products) > 10 {
+		return products[:10]
+	}
+	return products
+}
